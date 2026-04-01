@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAPAFITSPORTS - Treinador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">16:07</div>
+        <div class="status-right">
+            <span class="signal">📶</span>
+            <span class="wifi">📡</span>
+            <span class="battery">64%</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+            <h1 class="header-title">MAPAFITSPORTS</h1>
+        </div>
+        <div class="header-right">
+            <button class="notification-btn">🔔</button>
+            <span class="notification-badge">3</span>
+            <div class="profile-avatar" onclick="toggleProfileMenu()"></div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="close-btn" onclick="toggleSidebar()">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="dashboard">📊 Dashboard</a>
+            <a href="#" class="nav-item" data-section="students">👥 Alunos</a>
+            <a href="#" class="nav-item" data-section="evaluations">📋 Avaliações</a>
+            <a href="#" class="nav-item" data-section="training">🏋️ Treinos</a>
+            <a href="#" class="nav-item" data-section="programs">📚 Programas</a>
+            <a href="#" class="nav-item" data-section="scouts">📊 Scouts</a>
+            <a href="#" class="nav-item" data-section="products">📦 Produtos</a>
+            <a href="#" class="nav-item" data-section="feed">📢 Feed</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn-logout" onclick="logout()">🚪 Sair</button>
+        </div>
+    </aside>
+
+    <!-- Profile Menu -->
+    <div class="profile-menu" id="profileMenu">
+        <div class="profile-menu-header">
+            <div class="profile-avatar-large"></div>
+            <div class="profile-info">
+                <h3 id="trainerName">Carlos Silva</h3>
+                <p id="trainerEmail">carlos@mapafitsports.com</p>
+            </div>
+        </div>
+        <div class="profile-menu-items">
+            <a href="#" onclick="editProfile()">⚙️ Editar Perfil</a>
+            <a href="#" onclick="viewSettings()">🔧 Configurações</a>
+            <a href="#" onclick="logout()">🚪 Sair</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="section-header">
+                <h2>Dashboard</h2>
+                <p class="section-subtitle">Visão geral do seu programa</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <h3>Alunos Ativos</h3>
+                        <p class="stat-value">24</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <h3>Treinos Realizados</h3>
+                        <p class="stat-value">156</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>Avaliações</h3>
+                        <p class="stat-value">42</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <h3>Satisfação</h3>
+                        <p class="stat-value">4.8/5</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Próximas Aulas</h3>
+                    <div class="upcoming-classes">
+                        <div class="class-item">
+                            <span class="class-time">10:00</span>
+                            <span class="class-name">Treino Força</span>
+                            <span class="class-count">8 alunos</span>
+                        </div>
+                        <div class="class-item">
+                            <span class="class-time">14:00</span>
+                            <span class="class-name">Treino Técnico</span>
+                            <span class="class-count">12 alunos</span>
+                        </div>
+                        <div class="class-item">
+                            <span class="class-time">16:00</span>
+                            <span class="class-name">Treino Cardio</span>
+                            <span class="class-count">10 alunos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Alunos Recentes</h3>
+                    <div class="recent-students">
+                        <div class="student-item">
+                            <div class="student-avatar">JS</div>
+                            <div class="student-info">
+                                <p class="student-name">João Silva</p>
+                                <p class="student-status">Ativo</p>
+                            </div>
+                        </div>
+                        <div class="student-item">
+                            <div class="student-avatar">MS</div>
+                            <div class="student-info">
+                                <p class="student-name">Maria Santos</p>
+                                <p class="student-status">Ativo</p>
+                            </div>
+                        </div>
+                        <div class="student-item">
+                            <div class="student-avatar">PC</div>
+                            <div class="student-info">
+                                <p class="student-name">Pedro Costa</p>
+                                <p class="student-status">Inativo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Students Section -->
+        <section id="students" class="content-section">
+            <div class="section-header">
+                <h2>Gerenciar Alunos</h2>
+                <button class="btn-primary" onclick="openAddStudent()">+ Novo Aluno</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar aluno..." id="studentSearch" onkeyup="filterStudents()">
+            </div>
+
+            <div class="students-list" id="studentsList">
+                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar">JS</div>
+                        <div class="student-details">
+                            <h3>João Silva</h3>
+                            <p>joao@email.com</p>
+                        </div>
+                    </div>
+                    <div class="student-meta">
+                        <span class="badge badge-active">Ativo</span>
+                        <span class="meta-item">Membro desde: 15/01/2024</span>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-small" onclick="editStudent(1)">Editar</button>
+                        <button class="btn-small btn-danger" onclick="deleteStudent(1)">Deletar</button>
+                    </div>
+                </div>
+
+                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar">MS</div>
+                        <div class="student-details">
+                            <h3>Maria Santos</h3>
+                            <p>maria@email.com</p>
+                        </div>
+                    </div>
+                    <div class="student-meta">
+                        <span class="badge badge-active">Ativo</span>
+                        <span class="meta-item">Membro desde: 20/02/2024</span>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-small" onclick="editStudent(2)">Editar</button>
+                        <button class="btn-small btn-danger" onclick="deleteStudent(2)">Deletar</button>
+                    </div>
+                </div>
+
+                <div class="student-card">
+                    <div class="student-header">
+                        <div class="student-avatar">PC</div>
+                        <div class="student-details">
+                            <h3>Pedro Costa</h3>
+                            <p>pedro@email.com</p>
+                        </div>
+                    </div>
+                    <div class="student-meta">
+                        <span class="badge badge-inactive">Inativo</span>
+                        <span class="meta-item">Membro desde: 10/12/2023</span>
+                    </div>
+                    <div class="student-actions">
+                        <button class="btn-small" onclick="editStudent(3)">Editar</button>
+                        <button class="btn-small btn-danger" onclick="deleteStudent(3)">Deletar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluations Section -->
+        <section id="evaluations" class="content-section">
+            <div class="section-header">
+                <h2>Avaliações</h2>
+                <button class="btn-primary" onclick="openAddEvaluation()">+ Nova Avaliação</button>
+            </div>
+
+            <div class="evaluation-tabs">
+                <button class="tab-btn active" onclick="filterEvaluations('all')">Todas</button>
+                <button class="tab-btn" onclick="filterEvaluations('medical')">Médica</button>
+                <button class="tab-btn" onclick="filterEvaluations('physical')">Física</button>
+                <button class="tab-btn" onclick="filterEvaluations('technical')">Técnica</button>
+                <button class="tab-btn" onclick="filterEvaluations('psychological')">Psicológica</button>
+                <button class="tab-btn" onclick="filterEvaluations('dental')">Odontológica</button>
+                <button class="tab-btn" onclick="filterEvaluations('ophthalmology')">Oftalmológica</button>
+                <button class="tab-btn" onclick="filterEvaluations('other')">Outras</button>
+            </div>
+
+            <div class="evaluations-list" id="evaluationsList">
+                <div class="evaluation-card">
+                    <div class="evaluation-header">
+                        <h3>Avaliação Física - João Silva</h3>
+                        <span class="eval-date">20/03/2026</span>
+                    </div>
+                    <div class="evaluation-content">
+                        <p><strong>Altura:</strong> 1,80m</p>
+                        <p><strong>Peso:</strong> 75kg</p>
+                        <p><strong>IMC:</strong> 23,1</p>
+                        <p><strong>Status:</strong> ✅ Completa</p>
+                    </div>
+                    <div class="evaluation-actions">
+                        <button class="btn-small" onclick="viewEvaluation(1)">Visualizar</button>
+                        <button class="btn-small" onclick="editEvaluation(1)">Editar</button>
+                    </div>
+                </div>
+
+                <div class="evaluation-card">
+                    <div class="evaluation-header">
+                        <h3>Avaliação Médica - Maria Santos</h3>
+                        <span class="eval-date">18/03/2026</span>
+                    </div>
+                    <div class="evaluation-content">
+                        <p><strong>Pressão Arterial:</strong> 120/80</p>
+                        <p><strong>Frequência Cardíaca:</strong> 72 bpm</p>
+                        <p><strong>Status:</strong> ✅ Completa</p>
+                        <p><strong>Documentos:</strong> <a href="#" class="doc-link">📄 Laudo Médico</a></p>
+                    </div>
+                    <div class="evaluation-actions">
+                        <button class="btn-small" onclick="viewEvaluation(2)">Visualizar</button>
+                        <button class="btn-small" onclick="editEvaluation(2)">Editar</button>
+                    </div>
+                </div>
+
+                <div class="evaluation-card">
+                    <div class="evaluation-header">
+                        <h3>Avaliação Psicológica - Pedro Costa</h3>
+                        <span class="eval-date">15/03/2026</span>
+                    </div>
+                    <div class="evaluation-content">
+                        <p><strong>Tipo:</strong> Avaliação Psicológica</p>
+                        <p><strong>Status:</strong> ✅ Completa</p>
+                        <p><strong>Documentos:</strong> <a href="#" class="doc-link">📄 Relatório Psicológico</a></p>
+                    </div>
+                    <div class="evaluation-actions">
+                        <button class="btn-small" onclick="viewEvaluation(3)">Visualizar</button>
+                        <button class="btn-small" onclick="editEvaluation(3)">Editar</button>
+                    </div>
+                </div>
+
+                <div class="evaluation-card">
+                    <div class="evaluation-header">
+                        <h3>Avaliação Odontológica - Ana Silva</h3>
+                        <span class="eval-date">12/03/2026</span>
+                    </div>
+                    <div class="evaluation-content">
+                        <p><strong>Tipo:</strong> Avaliação Odontológica</p>
+                        <p><strong>Status:</strong> ✅ Completa</p>
+                        <p><strong>Documentos:</strong> <a href="#" class="doc-link">📄 Relatório Odontológico</a></p>
+                    </div>
+                    <div class="evaluation-actions">
+                        <button class="btn-small" onclick="viewEvaluation(4)">Visualizar</button>
+                        <button class="btn-small" onclick="editEvaluation(4)">Editar</button>
+                    </div>
+                </div>
+
+                <div class="evaluation-card">
+                    <div class="evaluation-header">
+                        <h3>Avaliação Oftalmológica - Lucas Mendes</h3>
+                        <span class="eval-date">10/03/2026</span>
+                    </div>
+                    <div class="evaluation-content">
+                        <p><strong>Tipo:</strong> Avaliação Oftalmológica</p>
+                        <p><strong>Status:</strong> ✅ Completa</p>
+                        <p><strong>Documentos:</strong> <a href="#" class="doc-link">📄 Relatório Oftalmológico</a></p>
+                    </div>
+                    <div class="evaluation-actions">
+                        <button class="btn-small" onclick="viewEvaluation(5)">Visualizar</button>
+                        <button class="btn-small" onclick="editEvaluation(5)">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section id="training" class="content-section">
+            <div class="section-header">
+                <h2>Programação de Treinos</h2>
+                <button class="btn-primary" onclick="openAddTraining()">+ Novo Treino</button>
+            </div>
+
+            <div class="training-schedule">
+                <div class="day-schedule">
+                    <h3>Segunda-feira</h3>
+                    <div class="training-item">
+                        <span class="time">10:00</span>
+                        <span class="name">Treino de Força</span>
+                        <span class="instructor">Carlos Silva</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="time">14:00</span>
+                        <span class="name">Cardio</span>
+                        <span class="instructor">Ana Costa</span>
+                    </div>
+                </div>
+
+                <div class="day-schedule">
+                    <h3>Quarta-feira</h3>
+                    <div class="training-item">
+                        <span class="time">10:00</span>
+                        <span class="name">Treino Técnico</span>
+                        <span class="instructor">Carlos Silva</span>
+                    </div>
+                    <div class="training-item">
+                        <span class="time">16:00</span>
+                        <span class="name">Flexibilidade</span>
+                        <span class="instructor">Maria Silva</span>
+                    </div>
+                </div>
+
+                <div class="day-schedule">
+                    <h3>Sexta-feira</h3>
+                    <div class="training-item">
+                        <span class="time">10:00</span>
+                        <span class="name">Treino Completo</span>
+                        <span class="instructor">Carlos Silva</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="content-section">
+            <div class="section-header">
+                <h2>Programas de Treinamento</h2>
+                <button class="btn-primary" onclick="openAddProgram()">+ Novo Programa</button>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>Clinica Avancada - Saque</h3>
+                    <p class="program-desc">Domine os diferentes tipos de saque com os melhores tecnicos</p>
+                    <div class="program-stats">
+                        <span>👥 10 alunos</span>
+                        <span>📅 4 semanas</span>
+                    </div>
+                    <div class="program-actions">
+                        <button class="btn-small" onclick="editProgram(1)">Editar</button>
+                        <button class="btn-small" onclick="viewProgram(1)">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <h3>Clinica Avancada - Volley</h3>
+                    <p class="program-desc">Aprenda tecnicas avancadas de volley e posicionamento</p>
+                    <div class="program-stats">
+                        <span>👥 12 alunos</span>
+                        <span>📅 5 semanas</span>
+                    </div>
+                    <div class="program-actions">
+                        <button class="btn-small" onclick="editProgram(2)">Editar</button>
+                        <button class="btn-small" onclick="viewProgram(2)">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <h3>Clinica Avancada - Toque</h3>
+                    <p class="program-desc">Domine o toque com precisao e controle</p>
+                    <div class="program-stats">
+                        <span>👥 8 alunos</span>
+                        <span>📅 4 semanas</span>
+                    </div>
+                    <div class="program-actions">
+                        <button class="btn-small" onclick="editProgram(3)">Editar</button>
+                        <button class="btn-small" onclick="viewProgram(3)">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <h3>Clinica Avancada - Ataque</h3>
+                    <p class="program-desc">Aprenda os melhores ataques e finalizacoes</p>
+                    <div class="program-stats">
+                        <span>👥 15 alunos</span>
+                        <span>📅 6 semanas</span>
+                    </div>
+                    <div class="program-actions">
+                        <button class="btn-small" onclick="editProgram(4)">Editar</button>
+                        <button class="btn-small" onclick="viewProgram(4)">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <h3>Clinica Avancada - Defesa</h3>
+                    <p class="program-desc">Domine tecnicas de defesa e bloqueio</p>
+                    <div class="program-stats">
+                        <span>👥 9 alunos</span>
+                        <span>📅 5 semanas</span>
+                    </div>
+                    <div class="program-actions">
+                        <button class="btn-small" onclick="editProgram(5)">Editar</button>
+                        <button class="btn-small" onclick="viewProgram(5)">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scouts Section -->
+        <section id="scouts" class="content-section">
+            <div class="section-header">
+                <h2>Scouts de Jogos</h2>
+                <button class="btn-primary" onclick="openAddScout()">+ Novo Scout</button>
+            </div>
+
+            <div class="scouts-list">
+                <div class="scout-card">
+                    <h3>Scout - Jogo 1</h3>
+                    <p class="scout-date">31/03/2026</p>
+                    <div class="scout-stats">
+                        <p><strong>Adversário:</strong> Time A</p>
+                        <p><strong>Resultado:</strong> 3 x 2</p>
+                        <p><strong>Alunos Avaliados:</strong> 8</p>
+                    </div>
+                    <button class="btn-small" onclick="viewScout(1)">Visualizar Detalhes</button>
+                </div>
+
+                <div class="scout-card">
+                    <h3>Scout - Jogo 2</h3>
+                    <p class="scout-date">28/03/2026</p>
+                    <div class="scout-stats">
+                        <p><strong>Adversário:</strong> Time B</p>
+                        <p><strong>Resultado:</strong> 2 x 1</p>
+                        <p><strong>Alunos Avaliados:</strong> 10</p>
+                    </div>
+                    <button class="btn-small" onclick="viewScout(2)">Visualizar Detalhes</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="content-section">
+            <div class="section-header">
+                <h2>Produtos</h2>
+                <button class="btn-primary" onclick="openAddProduct()">+ Novo Produto</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🎾</div>
+                    <h3>Raquete Premium</h3>
+                    <p class="product-desc">Raquete de alta performance para treinos</p>
+                    <p class="product-price">R$ 299,90</p>
+                    <span class="product-status">Novo</span>
+                    <button class="btn-small" onclick="editProduct(1)">Editar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👟</div>
+                    <h3>Tenis Esportivo</h3>
+                    <p class="product-desc">Tenis profissional com suporte avancado</p>
+                    <p class="product-price">R$ 199,90</p>
+                    <span class="product-status">Novo</span>
+                    <button class="btn-small" onclick="editProduct(2)">Editar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎒</div>
+                    <h3>Mochila Tecnica</h3>
+                    <p class="product-desc">Mochila para transporte de equipamentos</p>
+                    <p class="product-price">R$ 89,90</p>
+                    <span class="product-status">Usado</span>
+                    <button class="btn-small" onclick="editProduct(3)">Editar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧤</div>
+                    <h3>Luvas de Protecao</h3>
+                    <p class="product-desc">Luvas para protecao durante treinos</p>
+                    <p class="product-price">R$ 49,90</p>
+                    <span class="product-status">Novo</span>
+                    <button class="btn-small" onclick="editProduct(4)">Editar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🏋️</div>
+                    <h3>Fita de Resistencia</h3>
+                    <p class="product-desc">Fita elastica para exercicios de forca</p>
+                    <p class="product-price">R$ 39,90</p>
+                    <span class="product-status">Novo</span>
+                    <button class="btn-small" onclick="editProduct(5)">Editar</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧴</div>
+                    <h3>Gel de Recuperacao</h3>
+                    <p class="product-desc">Gel para recuperacao muscular pos-treino</p>
+                    <p class="product-price">R$ 59,90</p>
+                    <span class="product-status">Novo</span>
+                    <button class="btn-small" onclick="editProduct(6)">Editar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feed Section -->
+        <section id="feed" class="content-section">
+            <div class="section-header">
+                <h2>Feed de Noticias</h2>
+                <button class="btn-primary" onclick="openAddPost()">+ Nova Noticia</button>
+            </div>
+
+            <div class="feed-posts-grid">
+                <div class="post-card-square">
+                    <div class="post-square-image">🏆</div>
+                    <div class="post-square-content">
+                        <h4>Torneio Regional 2026</h4>
+                        <p>Inscricoes abertas!</p>
+                    </div>
+                    <div class="post-square-footer">
+                        <span>❤️ 234</span>
+                        <div class="post-square-actions">
+                            <button class="btn-icon" onclick="editPost(1)">✏️</button>
+                            <button class="btn-icon" onclick="deletePost(1)">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card-square">
+                    <div class="post-square-image">📚</div>
+                    <div class="post-square-content">
+                        <h4>Clinica Avancada</h4>
+                        <p>Aprenda golpes eficientes</p>
+                    </div>
+                    <div class="post-square-footer">
+                        <span>❤️ 156</span>
+                        <div class="post-square-actions">
+                            <button class="btn-icon" onclick="editPost(2)">✏️</button>
+                            <button class="btn-icon" onclick="deletePost(2)">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card-square">
+                    <div class="post-square-image">🎓</div>
+                    <div class="post-square-content">
+                        <h4>Curso Especializacao</h4>
+                        <p>Melhore suas habilidades</p>
+                    </div>
+                    <div class="post-square-footer">
+                        <span>❤️ 89</span>
+                        <div class="post-square-actions">
+                            <button class="btn-icon" onclick="editPost(3)">✏️</button>
+                            <button class="btn-icon" onclick="deletePost(3)">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card-square">
+                    <div class="post-square-image">🏅</div>
+                    <div class="post-square-content">
+                        <h4>Premiacao</h4>
+                        <p>Alunos destaque</p>
+                    </div>
+                    <div class="post-square-footer">
+                        <span>❤️ 120</span>
+                        <div class="post-square-actions">
+                            <button class="btn-icon" onclick="editPost(4)">✏️</button>
+                            <button class="btn-icon" onclick="deletePost(4)">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
