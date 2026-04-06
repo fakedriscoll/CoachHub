@@ -1,0 +1,25 @@
+{
+  "atividades": [
+    {
+      "id": 1,
+      "titulo": "Treino de Força",
+      "data": "2026-04-10T10:00:00",
+      "instrutor": "Prof. Carlos",
+      "descricao": "Foco em exercícios de força para membros superiores e inferiores."
+    },
+    {
+      "id": 2,
+      "titulo": "Treino Técnico de Voleio",
+      "data": "2026-04-12T15:00:00",
+      "instrutor": "Técnica Ana",
+      "descricao": "Exercícios para aprimorar a técnica de voleio e posicionamento."
+    },
+    {
+      "id": 3,
+      "titulo": "Cardio Intenso",
+      "data": "2026-04-14T09:00:00",
+      "instrutor": "Prof. Silva",
+      "descricao": "Treino de alta intensidade para melhorar a resistência cardiovascular."
+    }
+  ]
+}
